@@ -1037,6 +1037,101 @@ body.light .gallery-sort-btn { border-color: #ccc; color: #888; }
 body.light .gallery-sort-btn:hover { border-color: var(--accent); color: var(--accent); }
 body.light .gallery-sort-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
+
+
+/* ===========================
+   PARTNERS GRID (vedle sebe)
+=========================== */
+.partners-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.partner-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: 2px;
+  padding: 32px 28px;
+}
+
+.partner-block h2 {
+  font-size: 1.6rem;
+  margin: 8px 0 14px;
+  color: var(--text);
+}
+
+.partner-block p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.partner-photos-manual {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.partner-photos-manual img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 2px;
+  cursor: zoom-in;
+  transition: opacity 0.2s;
+}
+
+.partner-photos-manual img:hover { opacity: 0.85; }
+
+@media (max-width: 700px) {
+  .partners-grid { grid-template-columns: 1fr; }
+  .partner-photos-manual { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===========================
+   PARTNER BADGE
+=========================== */
+.partner-badge {
+  display: inline-block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  padding: 3px 12px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.partner-badge--gold {
+  background: linear-gradient(135deg, #b8860b, #daa520);
+  color: #111;
+}
+
+.partner-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--accent);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.partner-link:hover { border-bottom-color: var(--accent); }
+
+.partner-photos {
+  margin-top: 20px;
+}
+
 /* ===========================
    RESPONSIVE
 =========================== */
