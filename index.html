@@ -17,14 +17,19 @@
     <li><a href="gallery.html">Galerie</a></li>
     <li><a href="results.html">Výsledky</a></li>
   </ul>
+  <div class="hero-mode-toggle" id="heroModeToggle">
+    <button class="hero-mode-btn active" data-mode="karting">Motokáry</button>
+    <button class="hero-mode-btn" data-mode="rally">Rally</button>
+  </div>
 </nav>
 
-<div class="hero-carousel">
-  <img src="images/carusel (1).jpg" class="active" alt="Lamont Racing" loading="eager">
-  <img src="images/carusel (2).jpg" alt="Lamont Racing" loading="lazy">
-  <img src="images/carusel (3).jpg" alt="Lamont Racing" loading="lazy">
-  <img src="images/carusel (4).jpg" alt="Lamont Racing" loading="lazy">
-  <img src="images/carusel (5).jpg" alt="Lamont Racing" loading="lazy">
+<!-- CAROUSEL (motokáry) -->
+<div class="hero-carousel" id="heroCarousel">
+  <img src="images/carosel/carusel1.jpeg" class="active" alt="Lamont Racing" loading="eager">
+  <img src="images/carosel/carusel2.jpg" alt="Lamont Racing" loading="lazy">
+  <img src="images/carosel/carusel3.jpg" alt="Lamont Racing" loading="lazy">
+  <img src="images/carosel/carusel4.jpg" alt="Lamont Racing" loading="lazy">
+  <img src="images/carosel/carusel5.jpg" alt="Lamont Racing" loading="lazy">
   <div class="hero-overlay" id="heroOverlay">
     <div class="hero-title">
       <span class="t-lamont">Lamont</span>
@@ -33,23 +38,45 @@
     </div>
     <div class="hero-title-underline"></div>
     <p class="hero-subtitle">Motorsport team &amp; racing partnership project</p>
-    <a class="button center" href="partners.html">Našimi partnery jsou</a>
+    <a class="button center" href="partners.html">Partneři</a>
   </div>
   <div class="carousel-dots"></div>
+</div>
+
+<!-- VIDEO HERO (rally) — skryté na mobilu -->
+<div class="hero-video-wrap hidden" id="heroVideoWrap">
+  <div class="hero-video-inner">
+    <iframe id="rallyIframe"
+      src=""
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      title="Lamont Racing Rally"></iframe>
+  </div>
+  <div class="hero-overlay">
+    <div class="hero-title">
+      <span class="t-lamont">Lamont</span>
+      <span class="t-divider"></span>
+      <span class="t-racing">Racing</span>
+    </div>
+    <div class="hero-title-underline"></div>
+    <p class="hero-subtitle">Motorsport team &amp; racing partnership project</p>
+    <a class="button center" href="partners.html">Partneři</a>
+  </div>
 </div>
 
 <section class="container">
   <div class="section-block fade-section">
     <h2>O nás</h2>
     <div class="preview-box">
-      <p>Lamont Racing propojuje svět motorsportu s reklamními a propagačními aktivitami. Zaměřujeme se na soutěže motokár a postupně se účastníme i rally. Naším cílem je budovat profesionální závodní tým, který dokáže reprezentovat své partnery na trati i mimo ni.</p>
+      <p>Lamont Racing propojuje svět motorsportu s reklamními a propagačními aktivitami. Zaměřujeme se na soutěže motokár a rally. Naším cílem je budovat profesionální závodní tým, který dokáže reprezentovat své partnery na trati i mimo ni.</p>
       <a class="button" href="about.html">Zjistit více</a>
     </div>
   </div>
   <div class="section-block fade-section">
     <h2>Naši partneři</h2>
     <div class="preview-box">
-      <p>Stojíme na podpoře skvělých partnerů — TARUS a MECNER. Jejich zázemí nám umožňuje soustředit se na výkon na trati a profesionální prezentaci týmu na každém závodě.</p>
+      <p>Stojí za námi skvělí partneři: TARUS a MECNER. Umožňují nám soustředit se na výkon na trati a profesionální prezentaci na každém závodě.</p>
       <a class="button" href="partners.html">Zjistit více</a>
     </div>
   </div>
@@ -87,12 +114,19 @@
 
 <script>
 const year = new Date().getFullYear();
-document.getElementById("heroOverlay").setAttribute("data-year", year);
 document.getElementById("footerYear").textContent = "© " + year + " Lamont Racing";
+
+// ── theme toggle ──
 const toggle = document.getElementById("themeToggle");
 if (localStorage.getItem("theme") === "light") document.body.classList.add("light");
-toggle.addEventListener("click", () => { document.body.classList.toggle("light"); localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark"); });
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+  localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+});
+
 document.querySelectorAll("nav a").forEach(a => { if (a.href === location.href) a.classList.add("active"); });
+
+// ── carousel ──
 const carousel = document.querySelector(".hero-carousel");
 const slides = carousel.querySelectorAll("img");
 const dotsContainer = carousel.querySelector(".carousel-dots");
@@ -112,8 +146,73 @@ function showSlide(index) {
 function nextSlide() { showSlide((currentIndex + 1) % slides.length); }
 let interval = setInterval(nextSlide, 10000);
 function resetInterval() { clearInterval(interval); interval = setInterval(nextSlide, 10000); }
-const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }); }, { threshold: 0.12 });
+
+// ── fade sekce ──
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+}, { threshold: 0.12 });
 document.querySelectorAll(".fade-section").forEach(el => obs.observe(el));
+
+// ── hero mode toggle (jen desktop) ──
+const modeToggle = document.getElementById("heroModeToggle");
+const heroCarousel = document.getElementById("heroCarousel");
+const heroVideoWrap = document.getElementById("heroVideoWrap");
+const rallyIframe = document.getElementById("rallyIframe");
+const RALLY_VIDEO_ID = "igm_Pvv9v2o";
+const RALLY_START = 5;
+let videoLoaded = false;
+
+function isMobile() { return window.innerWidth < 768; }
+
+function setMode(mode, save) {
+  if (save !== false) localStorage.setItem("heroMode", mode);
+  document.querySelectorAll(".hero-mode-btn").forEach(b => {
+    b.classList.toggle("active", b.dataset.mode === mode);
+  });
+  if (mode === "rally" && !isMobile()) {
+    heroCarousel.classList.add("hidden");
+    heroVideoWrap.classList.remove("hidden");
+    if (!videoLoaded) {
+      rallyIframe.src = "https://www.youtube.com/embed/" + RALLY_VIDEO_ID +
+        "?autoplay=1&mute=1&loop=1&playlist=" + RALLY_VIDEO_ID +
+        "&start=" + RALLY_START + "&controls=0&modestbranding=1&rel=0&showinfo=0";
+      videoLoaded = true;
+    }
+  } else {
+    heroCarousel.classList.remove("hidden");
+    heroVideoWrap.classList.add("hidden");
+  }
+}
+
+// Obnovit uložený režim
+var savedMode = localStorage.getItem("heroMode") || "karting";
+if (!isMobile() && savedMode === "rally") {
+  setMode("rally", false);
+} else {
+  setMode("karting", false);
+}
+
+document.querySelectorAll(".hero-mode-btn").forEach(btn => {
+  btn.addEventListener("click", () => setMode(btn.dataset.mode, true));
+});
+
+window.addEventListener("resize", () => {
+  if (isMobile()) {
+    setMode("karting", false);
+  }
+}, { passive: true });
+
+// ── scroll fade pro hero mode toggle ──
+const heroModeToggle = document.getElementById("heroModeToggle");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 80) {
+    heroModeToggle.style.opacity = "0";
+    heroModeToggle.style.pointerEvents = "none";
+  } else {
+    heroModeToggle.style.opacity = "1";
+    heroModeToggle.style.pointerEvents = "auto";
+  }
+}, { passive: true });
 </script>
 </body>
 </html>
