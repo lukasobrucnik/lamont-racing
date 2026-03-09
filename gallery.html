@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galerie – Lamont Racing</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 <nav>
@@ -237,6 +239,13 @@ function loadGalleryBlock(block) {
     var img = new Image();
     img.onload = function() { imgs.push(src); n++; tryNext(); };
     img.onerror = function() {
+      if (imgs.length === 0) {
+        var ph = document.createElement('p');
+        ph.className = 'photos-placeholder';
+        ph.textContent = 'Fotografie budou brzy přidány';
+        container.appendChild(ph);
+        return;
+      }
       imgs.forEach(function(s, i) {
         var el = document.createElement('img');
         el.src = s;

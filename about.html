@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>O nás – Lamont Racing</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+
 <nav>
   <a href="index.html"><img src="images/lamont-logo.png" alt="Lamont Racing" class="nav-logo"></a>
   <ul>
@@ -17,38 +20,45 @@
     <li><a href="results.html">Výsledky</a></li>
   </ul>
 </nav>
+
 <div class="page-hero">
   <div class="page-hero-inner">
-    <div class="page-hero-label">Lamont Racing</div>
     <div class="page-hero-title">
       <span class="t-white">O</span>
       <span class="t-divider-small"></span>
-      <span class="t-red">Nás</span>
+      <span class="t-red">nás</span>
     </div>
-    <p class="page-hero-sub">Kdo jsme a co děláme</p>
+    <p class="page-hero-sub">Motorsport team &amp; racing partnership project</p>
   </div>
 </div>
+
 <section class="container">
+
   <div class="section-block fade-section">
     <h2>Lamont Racing</h2>
     <div class="preview-box">
-      <p>Lamont Racing je motorsportový projekt propojující svět závodů s reklamními a propagačními aktivitami. Naším cílem je budovat profesionální závodní tým, který dokáže reprezentovat své partnery na trati i mimo ni. Začínali jsme na motokárových závodech, kde jsme získali cenné zkušenosti s týmovou prací, strategií a tlakem skutečné soutěže. Postupně rozšiřujeme aktivity do dalších kategorií motorsportu, včetně rally.</p>
-      <p>Za volantem stojí zkušený pilot s vášní pro rychlost a přesnost. Každý závod je příležitostí ukázat, co motorsport opravdu je: adrenalin, strategie a práce týmu jako celku. Věříme, že závodní prostředí nabízí unikátní příležitost pro viditelnost partnerských značek a propojení s vášnivou komunitou fanoušků.</p>
-      <p>Projekt vznikl s jednoduchou myšlenkou: přinést profesionální přístup do amatérského motorsportu. Od prvních závodů v motokárách až po postupné zapojení do rally, každá etapa nás posouvá blíž k našemu cíli. Jsme tým, který se neustále rozvíjí, učí a hledá nové způsoby, jak být lepší na trati i jako organizace.</p>
+      <p class="typewriter-text" id="aboutText"></p>
     </div>
   </div>
-  <div class="section-block fade-section">
-    <h2>Kalendář závodů</h2>
+
+  <div class="calendar-section fade-section">
+    <div class="calendar-intro">
+      <h2>Kalendář závodů</h2>
+      <p>Přehled plánovaných závodů pro aktuální sezónu.</p>
+    </div>
     <div class="calendar-image-wrap" id="calendarWrap">
-      <img src="images/calendar.png" alt="Kalendář závodů" loading="lazy">
-      <div class="calendar-zoom-hint">🔍 kliknutím zobrazíš přes celou obrazovku</div>
+      <img src="images/calendar.png" alt="Kalendář závodů Lamont Racing" id="calendarImg">
+      <div class="calendar-zoom-hint">Kliknutím zvětšíte</div>
     </div>
   </div>
+
 </section>
-<div class="lightbox" id="calLightbox">
-  <span class="lightbox-close" id="calClose">&times;</span>
-  <img id="calLbImg" src="" alt="Kalendář závodů">
+
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lbClose">&times;</span>
+  <img id="lbImg" src="" alt="">
 </div>
+
 <footer>
   <div>
     <div class="footer-brand">Lamont <span>Racing</span></div>
@@ -60,42 +70,88 @@
   </div>
   <div class="footer-contact">Kontakt: <a href="mailto:jiriobrucnik@seznam.cz">jiriobrucnik@seznam.cz</a></div>
 </footer>
+
 <div class="theme-toggle" id="themeToggle">
   <span class="icon">🌙</span><div class="toggle-track"><div class="toggle-thumb"></div></div><span class="icon">☀️</span>
 </div>
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById("footerYear").textContent = "© " + new Date().getFullYear() + " Lamont Racing";
-  const toggle = document.getElementById("themeToggle");
-  if (localStorage.getItem("theme") === "light") document.body.classList.add("light");
-  toggle.addEventListener("click", () => {
-    document.body.classList.toggle("light");
-    localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
-  });
-  document.querySelectorAll("nav a").forEach(a => { if (a.href === location.href) a.classList.add("active"); });
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
-  }, { threshold: 0.05 });
-  document.querySelectorAll(".fade-section").forEach(el => obs.observe(el));
+document.getElementById("footerYear").textContent = "© " + new Date().getFullYear() + " Lamont Racing";
+
+var toggle = document.getElementById("themeToggle");
+if (localStorage.getItem("theme") === "light") document.body.classList.add("light");
+toggle.addEventListener("click", function() {
+  document.body.classList.toggle("light");
+  localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
 });
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const calWrap = document.getElementById("calendarWrap");
-  const calLightbox = document.getElementById("calLightbox");
-  const calLbImg = document.getElementById("calLbImg");
-  calWrap.addEventListener("click", () => {
-    calLbImg.src = calWrap.querySelector("img").src;
-    calLightbox.classList.add("open");
-    document.body.style.overflow = "hidden";
+
+var currentPath = location.pathname.replace(/\/$/, "").split("/").pop() || "index.html";
+document.querySelectorAll("nav a").forEach(function(a) {
+  var linkPath = a.getAttribute("href").split("/").pop() || "index.html";
+  if (linkPath === currentPath) a.classList.add("active");
+});
+
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add("visible"); });
+}, { threshold: 0.12 });
+document.querySelectorAll(".fade-section").forEach(function(el) { obs.observe(el); });
+
+// ── Typewriter efekt ──
+var fullText = "Lamont Racing je motorsportový projekt propojující svět závodů s reklamními a propagačními aktivitami. Naším cílem je budovat profesionální závodní tým, který dokáže reprezentovat své partnery na trati i mimo ni. Začínali jsme na motokárových závodech, kde jsme získali cenné zkušenosti s týmovou prací, strategií a tlakem skutečné soutěže. Postupně rozšiřujeme aktivity do dalších kategorií motorsportu, včetně rally. Za volantem stojí zkušený pilot s vášní pro rychlost a přesnost. Každý závod je příležitostí ukázat, co motorsport opravdu je: adrenalin, strategie a práce týmu jako celku. Věříme, že závodní prostředí nabízí unikátní příležitost pro viditelnost partnerských značek a propojení s vášnivou komunitou fanoušků. Projekt vznikl s jednoduchou myšlenkou: přinést profesionální přístup do amatérského motorsportu. Od prvních závodů v motokárách až po postupné zapojení do rally, každá etapa nás posouvá blíž k našemu cíli. Jsme tým, který se neustále rozvíjí, učí a hledá nové způsoby, jak být lepší na trati i jako organizace.";
+
+var el = document.getElementById("aboutText");
+var i = 0;
+var speed = 6; // ms na znak — rychlé ale čitelné
+
+function typeNext() {
+  if (i < fullText.length) {
+    var ch = fullText.charAt(i);
+    el.innerHTML += ch;
+    i++;
+    setTimeout(typeNext, speed);
+  }
+}
+
+// Spustit až je element viditelný
+var typeObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      typeObs.disconnect();
+      setTimeout(typeNext, 300);
+    }
   });
-  document.getElementById("calClose").addEventListener("click", () => {
-    calLightbox.classList.remove("open");
+}, { threshold: 0.1 });
+typeObs.observe(el);
+
+// ── Kalendář lightbox ──
+var calWrap = document.getElementById("calendarWrap");
+var lightbox = document.getElementById("lightbox");
+var lbImg = document.getElementById("lbImg");
+var lbClose = document.getElementById("lbClose");
+
+calWrap.addEventListener("click", function() {
+  lbImg.src = document.getElementById("calendarImg").src;
+  lightbox.classList.add("open");
+  document.body.style.overflow = "hidden";
+});
+
+lbClose.addEventListener("click", function() {
+  lightbox.classList.remove("open");
+  document.body.style.overflow = "";
+});
+
+lightbox.addEventListener("click", function(e) {
+  if (e.target === lightbox) {
+    lightbox.classList.remove("open");
     document.body.style.overflow = "";
-  });
-  calLightbox.addEventListener("click", e => {
-    if (e.target === calLightbox) { calLightbox.classList.remove("open"); document.body.style.overflow = ""; }
-  });
+  }
+});
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    lightbox.classList.remove("open");
+    document.body.style.overflow = "";
+  }
 });
 </script>
 </body>

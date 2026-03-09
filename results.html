@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Výsledky – Lamont Racing</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 <nav>
@@ -449,16 +451,21 @@ function loadSingleContainer(container) {
     var img = new Image();
     img.onload = function() { imgs.push(src); n++; if (n > 3) { img.onerror(); } else { tryNext(); } };
     img.onerror = function() {
-      if (imgs.length > 0) {
-        var captured = imgs.slice();
-        captured.forEach(function(s, i) {
-          var el = document.createElement('img');
-          el.src = s; el.alt = 'Foto ' + (i+1); el.loading = 'lazy';
-          el.addEventListener('click', function() { openLbFromContainer(container, i); });
-          container.appendChild(el);
-        });
-        container._photos = captured;
+      if (imgs.length === 0) {
+        var ph = document.createElement('p');
+        ph.className = 'photos-placeholder';
+        ph.textContent = 'Fotografie budou brzy přidány';
+        container.appendChild(ph);
+        return;
       }
+      var captured = imgs.slice();
+      captured.forEach(function(s, i) {
+        var el = document.createElement('img');
+        el.src = s; el.alt = 'Foto ' + (i+1); el.loading = 'lazy';
+        el.addEventListener('click', function() { openLbFromContainer(container, i); });
+        container.appendChild(el);
+      });
+      container._photos = captured;
     };
     img.src = src;
   }

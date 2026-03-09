@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lamont Racing</title>
+  <title>Lamont Racing — Motorsport Team</title>
+  <meta name="description" content="Lamont Racing je profesionální motorsport tým zaměřený na motokárové závody a rally. Sledujte výsledky, galerii a naše partnery.">
+  <meta property="og:title" content="Lamont Racing">
+  <meta property="og:description" content="Profesionální motorsport tým — motokáry a rally. Výsledky, galerie, partneři.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lukasobrucnik.github.io/lamont-racing/">
+  <meta property="og:image" content="https://lukasobrucnik.github.io/lamont-racing/images/carosel/carusel1.jpeg">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 
@@ -31,14 +39,14 @@
   <img src="images/carosel/carusel4.jpg" alt="Lamont Racing" loading="lazy">
   <img src="images/carosel/carusel5.jpg" alt="Lamont Racing" loading="lazy">
   <div class="hero-overlay" id="heroOverlay">
-    <div class="hero-title">
+    <div class="hero-title hero-anim">
       <span class="t-lamont">Lamont</span>
       <span class="t-divider"></span>
       <span class="t-racing">Racing</span>
     </div>
-    <div class="hero-title-underline"></div>
-    <p class="hero-subtitle">Motorsport team &amp; racing partnership project</p>
-    <a class="button center" href="partners.html">Partneři</a>
+    <div class="hero-title-underline hero-anim-delay1"></div>
+    <p class="hero-subtitle hero-anim-delay2">Motorsport team &amp; racing partnership project</p>
+    <a class="button center hero-anim-delay3" href="partners.html">Partneři</a>
   </div>
   <div class="carousel-dots"></div>
 </div>
@@ -54,14 +62,14 @@
       title="Lamont Racing Rally"></iframe>
   </div>
   <div class="hero-overlay">
-    <div class="hero-title">
+    <div class="hero-title hero-anim">
       <span class="t-lamont">Lamont</span>
       <span class="t-divider"></span>
       <span class="t-racing">Racing</span>
     </div>
-    <div class="hero-title-underline"></div>
-    <p class="hero-subtitle">Motorsport team &amp; racing partnership project</p>
-    <a class="button center" href="partners.html">Partneři</a>
+    <div class="hero-title-underline hero-anim-delay1"></div>
+    <p class="hero-subtitle hero-anim-delay2">Motorsport team &amp; racing partnership project</p>
+    <a class="button center hero-anim-delay3" href="partners.html">Partneři</a>
   </div>
 </div>
 
@@ -113,60 +121,64 @@
 </div>
 
 <script>
-const year = new Date().getFullYear();
-document.getElementById("footerYear").textContent = "© " + year + " Lamont Racing";
+// ── footer year ──
+document.getElementById("footerYear").textContent = "© " + new Date().getFullYear() + " Lamont Racing";
 
 // ── theme toggle ──
-const toggle = document.getElementById("themeToggle");
+var toggle = document.getElementById("themeToggle");
 if (localStorage.getItem("theme") === "light") document.body.classList.add("light");
-toggle.addEventListener("click", () => {
+toggle.addEventListener("click", function() {
   document.body.classList.toggle("light");
   localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
 });
 
-document.querySelectorAll("nav a").forEach(a => { if (a.href === location.href) a.classList.add("active"); });
+// ── nav aktivní odkaz (spolehlivé i na GitHub Pages) ──
+var currentPath = location.pathname.replace(/\/$/, "").split("/").pop() || "index.html";
+document.querySelectorAll("nav a").forEach(function(a) {
+  var linkPath = a.getAttribute("href").split("/").pop() || "index.html";
+  if (linkPath === currentPath) a.classList.add("active");
+});
 
 // ── carousel ──
-const carousel = document.querySelector(".hero-carousel");
-const slides = carousel.querySelectorAll("img");
-const dotsContainer = carousel.querySelector(".carousel-dots");
-slides.forEach((img, idx) => {
-  const dot = document.createElement("span");
+var carousel = document.querySelector(".hero-carousel");
+var slides = carousel.querySelectorAll("img");
+var dotsContainer = carousel.querySelector(".carousel-dots");
+slides.forEach(function(img, idx) {
+  var dot = document.createElement("span");
   if (idx === 0) dot.classList.add("active");
-  dot.addEventListener("click", () => { showSlide(idx); resetInterval(); });
+  dot.addEventListener("click", function() { showSlide(idx); resetInterval(); });
   dotsContainer.appendChild(dot);
 });
-const dots = dotsContainer.querySelectorAll("span");
-let currentIndex = 0;
+var dots = dotsContainer.querySelectorAll("span");
+var currentIndex = 0;
 function showSlide(index) {
-  slides.forEach((img, i) => img.classList.toggle("active", i === index));
-  dots.forEach((d, i) => d.classList.toggle("active", i === index));
+  slides.forEach(function(img, i) { img.classList.toggle("active", i === index); });
+  dots.forEach(function(d, i) { d.classList.toggle("active", i === index); });
   currentIndex = index;
 }
 function nextSlide() { showSlide((currentIndex + 1) % slides.length); }
-let interval = setInterval(nextSlide, 10000);
+var interval = setInterval(nextSlide, 10000);
 function resetInterval() { clearInterval(interval); interval = setInterval(nextSlide, 10000); }
 
 // ── fade sekce ──
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add("visible"); });
 }, { threshold: 0.12 });
-document.querySelectorAll(".fade-section").forEach(el => obs.observe(el));
+document.querySelectorAll(".fade-section").forEach(function(el) { obs.observe(el); });
 
-// ── hero mode toggle (jen desktop) ──
-const modeToggle = document.getElementById("heroModeToggle");
-const heroCarousel = document.getElementById("heroCarousel");
-const heroVideoWrap = document.getElementById("heroVideoWrap");
-const rallyIframe = document.getElementById("rallyIframe");
-const RALLY_VIDEO_ID = "igm_Pvv9v2o";
-const RALLY_START = 5;
-let videoLoaded = false;
+// ── hero mode toggle ──
+var heroCarousel = document.getElementById("heroCarousel");
+var heroVideoWrap = document.getElementById("heroVideoWrap");
+var rallyIframe = document.getElementById("rallyIframe");
+var RALLY_VIDEO_ID = "igm_Pvv9v2o";
+var RALLY_START = 5;
+var videoLoaded = false;
 
 function isMobile() { return window.innerWidth < 768; }
 
 function setMode(mode, save) {
   if (save !== false) localStorage.setItem("heroMode", mode);
-  document.querySelectorAll(".hero-mode-btn").forEach(b => {
+  document.querySelectorAll(".hero-mode-btn").forEach(function(b) {
     b.classList.toggle("active", b.dataset.mode === mode);
   });
   if (mode === "rally" && !isMobile()) {
@@ -184,7 +196,7 @@ function setMode(mode, save) {
   }
 }
 
-// Obnovit uložený režim
+// Při návratu na homepage obnovit uložený mod (carousel vždy jako výchozí)
 var savedMode = localStorage.getItem("heroMode") || "karting";
 if (!isMobile() && savedMode === "rally") {
   setMode("rally", false);
@@ -192,19 +204,17 @@ if (!isMobile() && savedMode === "rally") {
   setMode("karting", false);
 }
 
-document.querySelectorAll(".hero-mode-btn").forEach(btn => {
-  btn.addEventListener("click", () => setMode(btn.dataset.mode, true));
+document.querySelectorAll(".hero-mode-btn").forEach(function(btn) {
+  btn.addEventListener("click", function() { setMode(btn.dataset.mode, true); });
 });
 
-window.addEventListener("resize", () => {
-  if (isMobile()) {
-    setMode("karting", false);
-  }
+window.addEventListener("resize", function() {
+  if (isMobile()) setMode("karting", false);
 }, { passive: true });
 
 // ── scroll fade pro hero mode toggle ──
-const heroModeToggle = document.getElementById("heroModeToggle");
-window.addEventListener("scroll", () => {
+var heroModeToggle = document.getElementById("heroModeToggle");
+window.addEventListener("scroll", function() {
   if (window.scrollY > 80) {
     heroModeToggle.style.opacity = "0";
     heroModeToggle.style.pointerEvents = "none";

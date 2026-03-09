@@ -1444,3 +1444,52 @@ body.light .partner-logo-box .partner-logo-img {
   background: linear-gradient(135deg, #b8860b, #daa520);
   color: #111;
 }
+
+/* ===========================
+   PLACEHOLDER — žádné fotky
+=========================== */
+.photos-placeholder {
+  color: var(--text-muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 16px 0;
+  opacity: 0.6;
+}
+
+/* ===========================
+   HERO BLUR-IN ANIMACE
+=========================== */
+@keyframes heroBlurIn {
+  from {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.hero-anim {
+  opacity: 0;
+  animation: heroBlurIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+}
+
+.hero-anim-delay1 {
+  opacity: 0;
+  animation: heroBlurIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
+}
+
+.hero-anim-delay2 {
+  opacity: 0;
+  animation: heroBlurIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+}
+
+.hero-anim-delay3 {
+  opacity: 0;
+  animation: heroBlurIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards;
+}
