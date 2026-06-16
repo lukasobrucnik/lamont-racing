@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /domains/
+Disallow: /subdom/
+
+Sitemap: https://lamontracing.cz/sitemap.xml

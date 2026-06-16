@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galerie – Lamont Racing</title>
+  <title>Galerie | Lamont Racing</title>
+  <meta name="description" content="Fotogalerie z závodů Lamont Racing — motokáry a rally. Prohlédněte si fotografie z každého závodu.">
+  <link rel="canonical" href="https://lamontracing.cz/gallery.html">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <meta property="og:title" content="Galerie | Lamont Racing">
+  <meta property="og:description" content="Fotogalerie z závodů Lamont Racing — motokáry a rally. Prohlédněte si fotografie z každého závodu.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lamontracing.cz/gallery.html">
+  <meta property="og:image" content="https://lamontracing.cz/images/carosel/carusel1.jpeg">
+
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 <nav>
@@ -18,6 +29,7 @@
     <li><a href="gallery.html">Galerie</a></li>
     <li><a href="results.html">Výsledky</a></li>
   </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="page-hero">
   <div class="page-hero-inner">
@@ -69,14 +81,14 @@
         <h3 class="gallery-race-title">RMC CE — Jesolo #2</h3>
         <span class="gallery-race-date">27. 2. – 1. 3. 2026</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2026-02-27_Jesolo_CEE-1"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2026-02-27_Jesolo_CEE-1" data-race-name="RMC CE Jesolo #2"></div>
     </div>
     <div class="gallery-race-block" id="race-2026-02-20_Jesolo_Bonus-Cup">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">RMC CE Bonus Cup — Jesolo #1</h3>
         <span class="gallery-race-date">20. – 22. 2. 2026</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2026-02-20_Jesolo_Bonus-Cup"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2026-02-20_Jesolo_Bonus-Cup" data-race-name="RMC CE Bonus Cup Jesolo #1"></div>
     </div>
   </div>
 
@@ -87,112 +99,112 @@
         <h3 class="gallery-race-title">Mikulášská Rally Slušovice</h3>
         <span class="gallery-race-date">29. 11. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-11-29_Mikulasska-Rally-Slusovice"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-11-29_Mikulasska-Rally-Slusovice" data-race-name="Mikulášská Rally Slušovice"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-11-14_Rally-Fulnek-Odry">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">Daltek Rally Fulnek-Odry</h3>
         <span class="gallery-race-date">14.–15. 11. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-11-14_Rally-Fulnek-Odry"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-11-14_Rally-Fulnek-Odry" data-race-name="Daltek Rally Fulnek-Odry"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-10-10_Rally-Vsetin">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">Carlson-Partr Rally Vsetín</h3>
         <span class="gallery-race-date">10.–11. 10. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-10-10_Rally-Vsetin"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-10-10_Rally-Vsetin" data-race-name="Carlson-Partr Rally Vsetín"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-10-09_MSR-Bruck-4-zavod">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">MSR Bruck — Speedworld (4. závod)</h3>
         <span class="gallery-race-date">9.–10. 10. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-10-09_MSR-Bruck-4-zavod"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-10-09_MSR-Bruck-4-zavod" data-race-name="MSR Bruck Speedworld 4. závod"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-09-05_Rally-Vyskov">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">Rally Vyškov</h3>
         <span class="gallery-race-date">5.–6. 9. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-09-05_Rally-Vyskov"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-09-05_Rally-Vyskov" data-race-name="Rally Vyškov"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-08-22_CEE-Kecskemét">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">CEE Kecskemét</h3>
         <span class="gallery-race-date">22.–24. 8. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-08-22_CEE-Kecskemét"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-08-22_CEE-Kecskemét" data-race-name="CEE Kecskemét"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-08-08_MSR-Trinec-5-zavod">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">MSR Třinec #5</h3>
         <span class="gallery-race-date">8.–10. 8. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-08-08_MSR-Trinec-5-zavod"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-08-08_MSR-Trinec-5-zavod" data-race-name="MSR Třinec 5. závod"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-07-18_MSR-Vysoke-Myto-4-zavod">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">MSR Vysoké Mýto #4</h3>
         <span class="gallery-race-date">18.–20. 7. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-07-18_MSR-Vysoke-Myto-4-zavod"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-07-18_MSR-Vysoke-Myto-4-zavod" data-race-name="MSR Vysoké Mýto 4. závod"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-06-20_MSR-Bruck-3-zavod">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">MSR Bruck #3</h3>
         <span class="gallery-race-date">20.–22. 6. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-06-20_MSR-Bruck-3-zavod"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-06-20_MSR-Bruck-3-zavod" data-race-name="MSR Bruck 3. závod"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-06-04_Rotax-Euro-Trophy-Trinec">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">Rotax Euro Trophy</h3>
         <span class="gallery-race-date">4.–8. 6. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-06-04_Rotax-Euro-Trophy-Trinec"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-06-04_Rotax-Euro-Trophy-Trinec" data-race-name="Rotax Euro Trophy Třinec"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-05-23_CEE-3-Trinec">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">CEE Třinec #3</h3>
         <span class="gallery-race-date">23.–25. 5. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-05-23_CEE-3-Trinec"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-05-23_CEE-3-Trinec" data-race-name="CEE Třinec #3"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-05-09_MSR-Trinec-2-zavod">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">MSR Třinec (2. závod)</h3>
         <span class="gallery-race-date">9.–11. 5. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-05-09_MSR-Trinec-2-zavod"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-05-09_MSR-Trinec-2-zavod" data-race-name="MSR Třinec 2. závod"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-04-11_CEE-2-Slovakiaring">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">CEE Slovakiaring #2</h3>
         <span class="gallery-race-date">11.–13. 4. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-04-11_CEE-2-Slovakiaring"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-04-11_CEE-2-Slovakiaring" data-race-name="CEE Slovakiaring #2"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-04-04_MSR-1-Slovakiaring">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">MSR Slovakiaring #1</h3>
         <span class="gallery-race-date">4.–6. 4. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-04-04_MSR-1-Slovakiaring"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-04-04_MSR-1-Slovakiaring" data-race-name="MSR Slovakiaring 1. závod"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-02-28_CEE-1-Jesolo">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">CEE Jesolo #1</h3>
         <span class="gallery-race-date">28. 2.–2. 3. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-02-28_CEE-1-Jesolo"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-02-28_CEE-1-Jesolo" data-race-name="CEE Jesolo #1"></div>
     </div>
     <div class="gallery-race-block" id="race-2025-02-21_CEE-Bonus-Cup-Jesolo">
       <div class="gallery-race-header">
         <h3 class="gallery-race-title">CEE Bonus Cup Jesolo</h3>
         <span class="gallery-race-date">21.–23. 2. 2025</span>
       </div>
-      <div class="gallery-race-photos" data-folder="images/zavody/2025-02-21_CEE-Bonus-Cup-Jesolo"></div>
+      <div class="gallery-race-photos" data-folder="images/zavody/2025-02-21_CEE-Bonus-Cup-Jesolo" data-race-name="CEE Bonus Cup Jesolo"></div>
     </div>
   </div>
 
@@ -211,10 +223,10 @@
     <div class="footer-copy" id="footerYear"></div>
   </div>
   <div class="footer-links">
-    <a class="footer-social" href="https://www.instagram.com/lamont.racing/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.43.403a4.9 4.9 0 0 1 1.772 1.153 4.9 4.9 0 0 1 1.153 1.772c.163.46.349 1.26.403 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.403 2.43a4.9 4.9 0 0 1-1.153 1.772 4.9 4.9 0 0 1-1.772 1.153c-.46.163-1.26.349-2.43.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.403a4.9 4.9 0 0 1-1.772-1.153 4.9 4.9 0 0 1-1.153-1.772c-.163-.46-.349-1.26-.403-2.43C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.403-2.43A4.9 4.9 0 0 1 3.79 2.948a4.9 4.9 0 0 1 1.772-1.153c.46-.163 1.26-.349 2.43-.403C9.258 2.175 9.638 2.163 12 2.163zm0-2.163C8.756 0 8.332.014 7.052.072 5.775.131 4.902.333 4.14.63a7.07 7.07 0 0 0-2.546 1.66A7.07 7.07 0 0 0 .63 4.836C.333 5.598.131 6.471.072 7.748.014 9.028 0 9.452 0 12c0 2.548.014 2.972.072 4.252.059 1.277.261 2.15.558 2.912a7.07 7.07 0 0 0 1.664 2.546 7.07 7.07 0 0 0 2.546 1.664c.762.297 1.635.499 2.912.558C8.332 23.986 8.756 24 12 24s3.668-.014 4.948-.072c1.277-.059 2.15-.261 2.912-.558a7.07 7.07 0 0 0 2.546-1.664 7.07 7.07 0 0 0 1.664-2.546c.297-.762.499-1.635.558-2.912C23.986 15.668 24 15.244 24 12s-.014-3.668-.072-4.948c-.059-1.277-.261-2.15-.558-2.912a7.07 7.07 0 0 0-1.664-2.546A7.07 7.07 0 0 0 19.16.63C18.398.333 17.525.131 16.248.072 14.968.014 14.544 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>Instagram</a>
-    <a class="footer-social" href="https://www.facebook.com/lamontkartracing/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>Facebook</a>
+    <a class="footer-social" href="https://www.instagram.com/lamont.racing/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.43.403a4.9 4.9 0 0 1 1.772 1.153 4.9 4.9 0 0 1 1.153 1.772c.163.46.349 1.26.403 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.403 2.43a4.9 4.9 0 0 1-1.153 1.772 4.9 4.9 0 0 1-1.772 1.153c-.46.163-1.26.349-2.43.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.403a4.9 4.9 0 0 1-1.772-1.153 4.9 4.9 0 0 1-1.153-1.772c-.163-.46-.349-1.26-.403-2.43C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.403-2.43A4.9 4.9 0 0 1 3.79 2.948a4.9 4.9 0 0 1 1.772-1.153c.46-.163 1.26-.349 2.43-.403C9.258 2.175 9.638 2.163 12 2.163zm0-2.163C8.756 0 8.332.014 7.052.072 5.775.131 4.902.333 4.14.63a7.07 7.07 0 0 0-2.546 1.66A7.07 7.07 0 0 0 .63 4.836C.333 5.598.131 6.471.072 7.748.014 9.028 0 9.452 0 12c0 2.548.014 2.972.072 4.252.059 1.277.261 2.15.558 2.912a7.07 7.07 0 0 0 1.664 2.546 7.07 7.07 0 0 0 2.546 1.664c.762.297 1.635.499 2.912.558C8.332 23.986 8.756 24 12 24s3.668-.014 4.948-.072c1.277-.059 2.15-.261 2.912-.558a7.07 7.07 0 0 0 2.546-1.664 7.07 7.07 0 0 0 1.664-2.546c.297-.762.499-1.635.558-2.912C23.986 15.668 24 15.244 24 12s-.014-3.668-.072-4.948c-.059-1.277-.261-2.15-.558-2.912a7.07 7.07 0 0 0-1.664-2.546A7.07 7.07 0 0 0 19.16.63C18.398.333 17.525.131 16.248.072 14.968.014 14.544 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>Instagram</a>
+    <a class="footer-social" href="https://www.facebook.com/lamontkartracing/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>Facebook</a>
   </div>
-  <div class="footer-contact">Kontakt: <a href="/cdn-cgi/l/email-protection#472d2e352e2825353224292e2c0734223d29262a69243d"><span class="__cf_email__" data-cfemail="d2b8bba0bbbdb0a0a7b1bcbbb992a1b7a8bcb3bffcb1a8">[email&#160;protected]</span></a></div>
+  <div class="footer-contact">Kontakt: <a href="mailto:info@lamontracing.cz">info@lamontracing.cz</a></div>
 </footer>
 
 <div class="theme-toggle" id="themeToggle">
@@ -223,7 +235,7 @@
 
 <button class="scroll-top" id="scrollTop" title="Nahoru">&#8679;</button>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 var currentPhotos = [];
 var currentIdx = 0;
 
@@ -232,6 +244,7 @@ function loadGalleryBlock(block) {
   if (!container || container._loaded) return;
   container._loaded = true;
   var folder = container.getAttribute('data-folder');
+  var raceName = container.getAttribute('data-race-name') || 'Lamont Racing';
   var n = 1;
   var imgs = [];
   function tryNext() {
@@ -249,7 +262,7 @@ function loadGalleryBlock(block) {
       imgs.forEach(function(s, i) {
         var el = document.createElement('img');
         el.src = s;
-        el.alt = 'Foto ' + (i + 1);
+        el.alt = raceName + ' — fotografie ' + (i + 1);
         el.loading = 'lazy';
         el.addEventListener('click', function() {
           currentPhotos = imgs;
@@ -277,8 +290,10 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
   });
 
+  var currentPath = location.pathname.replace(/\/$/, "").split("/").pop() || "index.html";
   document.querySelectorAll("nav a").forEach(function(a) {
-    if (a.href === location.href) a.classList.add("active");
+    var linkPath = a.getAttribute("href").split("/").pop() || "index.html";
+    if (linkPath === currentPath) a.classList.add("active");
   });
 
   var obs = new IntersectionObserver(function(entries) {
@@ -286,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }, { threshold: 0.05 });
   document.querySelectorAll(".fade-section").forEach(function(el) { obs.observe(el); });
 
-  // přepínání roků
+  // ── přepínání roků ──
   var yearBtns = document.querySelectorAll('.season-btn[data-year]:not(.race-sub-btn)');
   yearBtns.forEach(function(btn) {
     btn.addEventListener('click', function() {
@@ -309,7 +324,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // přepínání závodů — scroll
+  // ── přepínání závodů — scroll ──
   document.querySelectorAll('.race-sub-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       document.querySelectorAll('.race-sub-btn[data-year="' + btn.getAttribute('data-year') + '"]').forEach(function(b) { b.classList.remove('active'); });
@@ -329,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // načti bloky aktivního roku
   document.querySelectorAll('.gallery-races-wrap[data-year-blocks="2026"] .gallery-race-block').forEach(loadGalleryBlock);
 
-  // lightbox
+  // ── lightbox ──
   var lightbox = document.getElementById('lightbox');
   var lbImg = document.getElementById('lbImg');
   function closeLb() { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
@@ -346,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.key === 'ArrowRight') showNext();
   });
 
-  // scroll to top
+  // ── scroll to top ──
   var scrollTopBtn = document.getElementById('scrollTop');
   window.addEventListener('scroll', function() {
     scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
@@ -354,6 +369,22 @@ document.addEventListener('DOMContentLoaded', function() {
   scrollTopBtn.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // ── hamburger menu ──
+  var hamburger = document.getElementById("navHamburger");
+  var navUl = document.querySelector("nav ul");
+  if (hamburger && navUl) {
+    hamburger.addEventListener("click", function() {
+      hamburger.classList.toggle("open");
+      navUl.classList.toggle("open");
+    });
+    navUl.querySelectorAll("a").forEach(function(a) {
+      a.addEventListener("click", function() {
+        hamburger.classList.remove("open");
+        navUl.classList.remove("open");
+      });
+    });
+  }
 
 });
 </script>
